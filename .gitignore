@@ -1,0 +1,82 @@
+# =========================
+# PRIVATE
+# =========================
+
+oswiadczenie*
+*oswiadczenie*.txt
+*oswiadczenie*.pdf
+
+# =========================
+# ZMIENNE ŚRODOWISKOWE I SEKRETY
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# PYTHON
+# =========================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv/
+venv/
+env/
+ENV/
+
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+
+# =========================
+# JAVA
+# =========================
+
+*.class
+
+*.jar
+*.war
+*.ear
+
+target/
+build/
+.gradle/
+
+# =========================
+# NODE.JS / JAVASCRIPT
+# =========================
+
+node_modules/
+
+# npm/yarn
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# IDE
+# =========================
+# Visual Studio Code
+.vscode/
+
+# IntelliJ IDEA / PyCharm / WebStorm
+.idea/
+*.iml
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =========================
+# MIDDLEWARE
+# =========================
+
+generated/
