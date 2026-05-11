@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+service InfoService {
+  rpc ComputeSquare (MathRequest) returns (MathResponse);
+}
+
+service StreamService {
+  rpc MonitorServerUsage (Empty) returns (stream UsageResponse);
+}
+
+message MathRequest {
+  int32 number = 1;
+}
+
+message MathResponse {
+  string server_id = 1;
+  int32 result = 2;
+  string current_time = 3;
+}
+
+message Empty {}
+
+message UsageResponse {
+  string server_id = 1;
+  string usage = 2;
+  string current_time = 3;
+}
