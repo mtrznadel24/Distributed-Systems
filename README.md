@@ -39,3 +39,23 @@ A REST API service built with FastAPI that aggregates data from public space API
 * **Data Validation:** Pydantic
 * **Frontend:** Static HTML, Vanilla JavaScript, CSS
 * **Architecture:** REST API, API Gateway pattern
+
+---
+
+## Task 4: Space Transport Middleware (RabbitMQ)
+
+### Overview
+A message-oriented middleware system built with RabbitMQ that acts as a broker between Space Agencies and Space Transport Carriers. The project demonstrates advanced message routing, fair dispatching, and the integration of multiple messaging patterns within a single `topic` exchange.
+
+**Key features:**
+* **Topic Exchange Routing:** Utilizes dynamic routing keys (e.g., `task.cargo`, `ack.NASA`, `admin.all`) to intelligently route payloads between publishers and consumers.
+* **Competing Consumers (Fair Dispatch):** Carriers subscribe to specific service queues. The system uses `basic_qos(prefetch_count=1)` to ensure tasks are strictly assigned to the first available (idle) carrier, preventing bottlenecking.
+* **Request-Reply Pattern:** Agencies publish tasks with unique UUIDs to shared work queues and listen for asynchronous acknowledgments on temporary, exclusive, auto-generated queues.
+* **Admin Intercept & Broadcast:** An administrative module uses a wildcard (`#`) binding to silently intercept all system traffic (spy mode) and can broadcast real-time messages to targeted user groups (agencies, carriers, or all).
+* **Thread Safety:** Implements separate Pika connections and channels for consuming and publishing within `threading` contexts to ensure robust, non-blocking I/O operations without dropping streams.
+
+### Technologies
+* **Language:** Python
+* **Message Broker:** RabbitMQ (Dockerized)
+* **Core Libraries:** `pika`, `threading`, `json`, `uuid`
+* **Architecture:** Message-Oriented Middleware (MOM), Pub/Sub, Work Queues

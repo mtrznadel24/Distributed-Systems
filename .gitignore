@@ -80,3 +80,7 @@ Desktop.ini
 # =========================
 
 generated/
+
+schema_pb2.py
+schema_pb2_grpc.py
+SmartHome/
